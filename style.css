@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
+:root {
+    --a: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -101,7 +105,14 @@ body {
     border-radius: 5px;
     position: relative;
     font-size: 0.8rem;
+
     /* overflow: hidden; */
+}
+
+.card:hover {
+    background-color: #4d4c4c;
+    transition: .9s;
+    --a: 1;
 }
 
 .card img {
@@ -120,7 +131,7 @@ body {
     margin: 30px 10px 30px 10px;
     justify-content: center;
     /* overflow-y: auto; */
-    max-height: 70vh;
+    max-height: 60vh;
 }
 
 .play {
@@ -135,6 +146,8 @@ body {
     position: absolute;
     right: 20px;
     top: 120px;
+    opacity: var(--a);
+    transition: all .5s ease-out;
 }
 
 .signup-btn {
@@ -256,7 +269,8 @@ body {
     margin-block: 10px;
     font-size: 0.8rem;
 }
-.songtime{
+
+.songtime {
     text-align: center;
 }
 
@@ -274,26 +288,34 @@ body {
 .close img {
     width: 30px;
 }
-.vol-time{
+
+.vol-time {
     display: flex;
     gap: 10px;
     align-items: center;
     width: 200px;
 }
-.volume{
+
+.volume {
     display: flex;
     gap: 10px;
     justify-content: center;
     align-items: center;
 }
-.range{
+.volume>img{
+    cursor: pointer;
+}
+
+.range {
     width: 80px;
     height: 5px;
     background-color: teal;
 }
-.songinfo{
+
+.songinfo {
     padding-inline: 10px;
 }
+
 @media (max-width: 1200px) {
     .left {
         position: absolute;
@@ -315,35 +337,87 @@ body {
         width: 98%;
     }
 
-    .playbar *{
+    .playbar * {
         font-size: 0.6rem;
     }
-    .songbuttons{
+
+    .songbuttons {
         width: 50px;
         display: flex;
 
     }
+
     .ham {
         display: inline-block;
     }
 }
+
 @media (max-width: 570px) {
-    .abovebar{
+    .abovebar {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .vol-time{
+
+    .vol-time {
         flex-direction: column;
     }
 
 }
+
 @media (max-width: 450px) {
-    .card{
+    .card {
         width: 85vw;
     }
-    .cardContainer{
+
+    .cardContainer {
         margin: 0;
         margin-top: 20px;
     }
+}
+
+/* for changing input range color */
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+        overflow: hidden;
+        width: 80px;
+        -webkit-appearance: none;
+        background-color: #fff;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+        height: 10px;
+        -webkit-appearance: none;
+        color: #fff;
+        /* margin-top: -1px; */
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        width: 10px;
+        -webkit-appearance: none;
+        height: 10px;
+        cursor: pointer;
+        background: #fff;
+        box-shadow: -80px 0 0 80px rgb(95, 95, 95);
+    }
+
+}
+
+/** FF*/
+input[type="range"]::-moz-range-progress {
+    background-color: #43e5f7;
+}
+
+input[type="range"]::-moz-range-track {
+    background-color: #9a905d;
+}
+
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+    background-color: #43e5f7;
+}
+
+input[type="range"]::-ms-fill-upper {
+    background-color: #9a905d;
 }
